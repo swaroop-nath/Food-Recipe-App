@@ -1,0 +1,43 @@
+<h1>
+    Popular dishes
+</h1>
+<br>
+<div class="popular-dishes-list">
+    <table>
+        <tr>
+            <td *ngFor="let dish of popularDishes">
+                <!-- Use the dish to populate cards -->
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+
+<h1>
+    {{ categoryOne.categoryName }}
+</h1>
+<br>
+<div class="cat-one-dishes-list">
+    <table>
+        <tr>
+            <td *ngFor="let dish of categoryOneDishes">
+                <!-- Use the dish to populate cards -->
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+
+<h1>
+    {{ categoryTwo.categoryName }}
+</h1>
+<br>
+<div class="cat-two-dishes-list">
+    <table>
+        <tr>
+            <td *ngFor="let dish of categoryTwoDishes">
+                <!-- Use the dish to populate cards -->
+            </td>
+        </tr>
+    </table>
+</div>
