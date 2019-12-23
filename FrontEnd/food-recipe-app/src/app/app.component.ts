@@ -18,6 +18,8 @@ export class AppComponent {
   }
 
   signIn(): void {
+    console.log(this.isSignInVisible);
+    
     this.isSignInVisible = !this.isSignInVisible;
   }
 
@@ -27,5 +29,9 @@ export class AppComponent {
 
   closeSignIn(): void {
     this.isSignInVisible = false;
+  }
+
+  signUpUser(): void {
+
   }
 }

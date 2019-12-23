@@ -6,7 +6,18 @@
     <table>
         <tr>
             <td *ngFor="let dish of popularDishes">
-                <!-- Use the dish to populate cards -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/sample-1.jpg">
+                        <span class="card-title">{{dish.dishName}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>{{dish.description | slice:0:50}}... See More</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Learn More</a>
+                    </div>
+                </div>
             </td>
         </tr>
     </table>
@@ -41,3 +52,5 @@
         </tr>
     </table>
 </div>
+
+<!-- <h1>{{str | slice:0:4}}... See More</h1> -->

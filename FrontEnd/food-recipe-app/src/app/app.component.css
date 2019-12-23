@@ -3,24 +3,28 @@
     margin: -8px;
     display: flex;
     align-items: center;
-    background-color: #202230;
+    background-color: #FFA000;
     color: white;
     font-weight: 600;
 }
 
-.toolbar .company_tag {
+.toolbar .company-tag {
+    position: absolute;
+    top: 8px;
     margin-left: 16px;
     font-size: 18pt;
 }
 
-.toolbar img {
-    margin: 0 16px;
+.toolbar .company-logo {
+    padding-top: 16px;
+    margin-left: 16px;
 }
 
 .toolbar .search-bar-input {
     position: absolute;
     left: 25%;
     width: 35%;
+    top: 28px;
     height: 45px;
     background-color: white;
     border-radius: 25px;
@@ -31,21 +35,23 @@
     padding-right: 3%;
 }
 
-/* doesn't work */
 .toolbar .search-bar-input:focus {
     border: 0;
-    border: 0.5px solid #3498db;
+    border: 1px solid #03A9F4;
 }
 
 .toolbar .search-bar-icon {
     position: absolute;
     left: 60.5%;
+    top: 28px;
     margin-top: -14px;
     cursor: pointer;
 }
 
 .useful-links {
     position: absolute;
+    top: -8px;
+    padding-top: 6px;
     right: 16px;
     width: 200px;
     height: 60px;
@@ -63,7 +69,7 @@
 }
 
 .useful-links .about-app:hover {
-    background-color: #31354e;
+    background-color: #FFC107;
 }
 
 .useful-links .sign-in {
@@ -78,7 +84,7 @@
 }
 
 .useful-links .sign-in:hover {
-    background-color: #31354e;
+    background-color: #FFC107;
 }
 
 .blur {
@@ -87,18 +93,18 @@
 }
 
 .warning {
-    border-left: tomato;
-    color: tomato;
+    border-left: red;
+    color: red;
 }
 
 .box {
     width: 30%;
-    height: 55%;
+    height: 75%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #202230;
+    background: #FFC107;
     text-align: center;
     color: white;
     /* font-family: 'Courier New', Courier, monospace; */
@@ -113,7 +119,7 @@
 .box input[type="text"],
 .box input[type="password"] {
     border: 0;
-    background: none;
+    background: transparent;
     display: block;
     margin: 10px auto;
     text-align: center;
@@ -122,7 +128,7 @@
     width: 200px;
     outline: none;
     color: white;
-    border-radius: 24px;
+    border-radius: 50px;
     transition: 0.25s;
     font-size: 12pt;
     /* font-family: 'Courier New', Courier, monospace; */
@@ -131,7 +137,7 @@
 .box input[type="text"]:focus,
 .box input[type="password"]:focus {
     width: 280px;
-    border-color: #2ecc71;
+    border-color: #03A9F4;
 }
 
 .box button[type="submit"] {
@@ -140,7 +146,7 @@
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
+    border: 2px solid #03A9F4;
     padding: 14px 40px;
     outline: none;
     color: white;
@@ -152,13 +158,13 @@
 }
 
 .box button[type="submit"]:hover {
-    background: #2ecc71;
+    background: #03A9F4;
 }
 
 .container svg {
     position: absolute;
     left: 62%;
-    top: 25%;
+    top: 15%;
     fill: white;
     cursor: pointer;
 }

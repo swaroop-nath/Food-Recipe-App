@@ -11,7 +11,6 @@ import { ListRecipeComponent } from './list-recipe/list-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
-import { from } from 'rxjs';
 
 @NgModule({
   declarations: [

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodRecipeService } from '../food-recipe-service/food-recipe-service.service';
-import { NavigatorRoutingModule } from '../navigator/navigator-routing.module';
 import { Dish } from '../model/dish.model';
 import { Category } from '../model/category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +17,11 @@ export class HomeComponent implements OnInit {
   categoryOne: Category;
   categoryTwo: Category;
 
+  str: string = 'abcdefghij';
+
   POPULAR_DISHES_COUNT = 5;
 
-  constructor(private service: FoodRecipeService, private router: NavigatorRoutingModule) { 
+  constructor(private service: FoodRecipeService, private router: Router) { 
     this.popularDishes = [];
     this.categoryOneDishes = [];
     this.categoryTwoDishes = [];
