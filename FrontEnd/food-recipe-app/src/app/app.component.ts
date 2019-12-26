@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
+import { FoodRecipeService } from './food-recipe-service/food-recipe-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ export class AppComponent {
   
   isSignInVisible = false;
 
+  constructor(private service: FoodRecipeService) {}
+
   searchRecipe(): void {
 
   }
@@ -18,20 +22,20 @@ export class AppComponent {
   }
 
   signIn(): void {
-    console.log(this.isSignInVisible);
-    
     this.isSignInVisible = !this.isSignInVisible;
-  }
-
-  login(): void {
-
+    $('div').toggleClass('blur');
   }
 
   closeSignIn(): void {
     this.isSignInVisible = false;
+    $('div').toggleClass('blur');
   }
 
-  signUpUser(): void {
-
+  setUpView(token, userDetails): void {
+    if (!(token === this.service.getJWToken() && userDetails != null))
+      alert("User Not Logged In. Please Login");
+    else {
+      // Show specific details
+    }
   }
 }

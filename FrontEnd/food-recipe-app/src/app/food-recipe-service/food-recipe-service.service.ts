@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dish } from '../model/dish.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Category } from '../model/category.model';
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,17 @@ export class FoodRecipeService {
   private dishesMaster: Dish[];
   private categoriesMaster: Category[];
 
+  private jwToken: string = '';
+  private loggedInUser: User = null;
+
+  private AUTHORIZATION_TOKEN: string = 'Authorization';
+
   transitDish: Dish = null;
 
-  private FETCH_ALL_RECIPES_URL = 'http://localhost:8180/recipe-api/fetch-all';
+  private FETCH_ALL_RECIPES_URL: string = 'http://localhost:8180/recipe-api/fetch-all';
+  private SIGN_UP_USER_URL: string = 'http://localhost:8180/auth-api/sign-up';
+  private LOG_IN_USER_URL: string = 'http://localhost:8180/auth-api/authenticate';
+  private GET_USER_DETAILS_URL: string = 'http://localhost:8180/auth-api/get-user';
 
   constructor(private httpClient: HttpClient) {
     this.dishesMaster = [];
@@ -66,5 +75,37 @@ export class FoodRecipeService {
       }
     });
     return dishes;
+  }
+
+
+  logInUser(): Observable<string> {
+    return this.httpClient.get<string>(this.LOG_IN_USER_URL);
+  }
+
+  signUpUser(): Observable<string> {
+    return this.httpClient.get<string>(this.SIGN_UP_USER_URL);
+  }
+
+  setJWToken(token: string): void {
+    this.jwToken = token;
+    sessionStorage.setItem('token', this.jwToken);
+  }
+
+  getJWToken(): string {
+    return this.jwToken;
+  }
+
+  getUserDetails(token: string): Observable<User> {
+    let headers = new HttpHeaders();
+    headers.append(this.AUTHORIZATION_TOKEN, token);
+    return this.httpClient.get<User>(this.GET_USER_DETAILS_URL, {headers: headers});
+  }
+
+  setSession(userDetails: User): void {
+    this.loggedInUser = userDetails;
+  }
+
+  getSession(): User {
+    return this.loggedInUser;
   }
 }

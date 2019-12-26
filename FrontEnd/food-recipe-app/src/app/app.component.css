@@ -93,83 +93,11 @@
 }
 
 .blur {
-    -webkit-filter: blur(20px);
-    filter: blur(20px);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
 }
 
 .warning {
     border-left: red;
     color: red;
-}
-
-.box {
-    width: 30%;
-    height: 75%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #03A9F4;
-    text-align: center;
-    color: white;
-    /* font-family: 'Courier New', Courier, monospace; */
-}
-
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: transparent;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    border: 2px solid rgb(0, 255, 34);
-    padding: 14px 10px;
-    width: 200px;
-    outline: none;
-    color: white;
-    border-radius: 50px;
-    transition: 0.25s;
-    font-size: 12pt;
-    /* font-family: 'Courier New', Courier, monospace; */
-}
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 280px;
-    border-color: rgb(0, 255, 34);
-}
-
-.box button[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid rgb(0, 255, 34);
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    font-size: 12pt;
-    transition: 0.25s;
-    cursor: pointer;
-    /* font-family: 'Courier New', Courier, monospace; */
-}
-
-.box button[type="submit"]:hover {
-    background: rgb(0, 255, 34);
-}
-
-.container svg {
-    position: absolute;
-    left: 62%;
-    top: 15%;
-    fill: white;
-    cursor: pointer;
 }
