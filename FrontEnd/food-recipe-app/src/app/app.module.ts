@@ -14,6 +14,7 @@ import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SliderModule } from 'angular-image-slider';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     HomeComponent,
     ListRecipeComponent,
     ViewRecipeComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

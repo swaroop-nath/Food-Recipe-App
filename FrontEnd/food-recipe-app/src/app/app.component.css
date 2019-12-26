@@ -8,6 +8,11 @@
     font-weight: 600;
 }
 
+.toolbar a {
+    text-decoration: none;
+    color: white;
+}
+
 .toolbar .company-tag {
     position: absolute;
     top: 8px;
@@ -104,7 +109,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #FFC107;
+    background: #03A9F4;
     text-align: center;
     color: white;
     /* font-family: 'Courier New', Courier, monospace; */
@@ -123,7 +128,7 @@
     display: block;
     margin: 10px auto;
     text-align: center;
-    border: 2px solid #3498db;
+    border: 2px solid rgb(0, 255, 34);
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -137,7 +142,7 @@
 .box input[type="text"]:focus,
 .box input[type="password"]:focus {
     width: 280px;
-    border-color: #03A9F4;
+    border-color: rgb(0, 255, 34);
 }
 
 .box button[type="submit"] {
@@ -146,7 +151,7 @@
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #03A9F4;
+    border: 2px solid rgb(0, 255, 34);
     padding: 14px 40px;
     outline: none;
     color: white;
@@ -158,7 +163,7 @@
 }
 
 .box button[type="submit"]:hover {
-    background: #03A9F4;
+    background: rgb(0, 255, 34);
 }
 
 .container svg {
