@@ -11,6 +11,9 @@ import { ListRecipeComponent } from './list-recipe/list-recipe.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SliderModule } from 'angular-image-slider';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
     BrowserModule,
     FormsModule,
     NavigatorRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    // SliderModule,
+    // BrowserAnimationsModule
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

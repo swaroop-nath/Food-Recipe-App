@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   categoryOne: Category;
   categoryTwo: Category;
 
-  str: string = 'abcdefghij';
+  imageViewIndex: number = 0;
 
   POPULAR_DISHES_COUNT = 5;
 
@@ -30,15 +30,22 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.loadAllRecipes().subscribe(fetchedDishes => this.setUpData);
+    this.service.loadAllRecipes().subscribe(fetchedDishes => this.setUpData(fetchedDishes));
   }
 
   private setUpData(fetchedDishes: Dish[]): void {
     this.service.setDishes(fetchedDishes);
     this.popularDishes = this.service.getPopularDishes(this.POPULAR_DISHES_COUNT);
+    console.log(fetchedDishes);
+    
     [this.categoryOne, this.categoryTwo] = this.service.loadRandomCategories()
     this.categoryOneDishes = this.service.loadCategoryWiseDishes(this.categoryOne.categoryId);
     this.categoryTwoDishes = this.service.loadCategoryWiseDishes(this.categoryTwo.categoryId);
+  }
+
+  showDish(selectedDish: Dish): void {
+    this.service.transitDish = selectedDish;
+    this.router.navigate(['/view-recipe']);
   }
 
 }

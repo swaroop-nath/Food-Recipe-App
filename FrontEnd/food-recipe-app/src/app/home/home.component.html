@@ -1,21 +1,44 @@
-<h1>
+<h3>
     Popular dishes
-</h1>
-<br>
+</h3>
 <div class="popular-dishes-list">
-    <table>
+    <table class="responsive-table striped">
         <tr>
             <td *ngFor="let dish of popularDishes">
-                <div class="card">
+                <div class="card" (click)="showDish(dish)">
                     <div class="card-image">
-                        <img src="images/sample-1.jpg">
+                        <img [src]="dish.images[imageViewIndex].imageURL" width="200px" height="250px">
+                        <span class="card-title">{{dish.dishName}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>{{dish.description | slice:0:100}}... See More</p>
+                    </div>
+                    <div class="card-action">
+                        <span>Learn More</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<h3>
+    {{ categoryOne.categoryName }}
+</h3>
+<div class="cat-one-dishes-list">
+    <table class="responsive-table striped">
+        <tr>
+            <td *ngFor="let dish of categoryOneDishes">
+                <div class="card" (click)="showDish(dish)">
+                    <div class="card-image">
+                        <img [src]="dish.images[imageViewIndex].imageURL">
                         <span class="card-title">{{dish.dishName}}</span>
                     </div>
                     <div class="card-content">
                         <p>{{dish.description | slice:0:50}}... See More</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Learn More</a>
+                        <span>Learn More</span>
                     </div>
                 </div>
             </td>
@@ -24,30 +47,25 @@
 </div>
 <br>
 
-<h1>
-    {{ categoryOne.categoryName }}
-</h1>
-<br>
-<div class="cat-one-dishes-list">
-    <table>
-        <tr>
-            <td *ngFor="let dish of categoryOneDishes">
-                <!-- Use the dish to populate cards -->
-            </td>
-        </tr>
-    </table>
-</div>
-<br>
-
-<h1>
+<h3>
     {{ categoryTwo.categoryName }}
-</h1>
-<br>
+</h3>
 <div class="cat-two-dishes-list">
-    <table>
+    <table class="responsive-table striped">
         <tr>
             <td *ngFor="let dish of categoryTwoDishes">
-                <!-- Use the dish to populate cards -->
+                <div class="card" (click)="showDish(dish)">
+                    <div class="card-image">
+                        <img [src]="dish.images[imageViewIndex].imageURL">
+                        <span class="card-title">{{dish.dishName}}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>{{dish.description | slice:0:50}}... See More</p>
+                    </div>
+                    <div class="card-action">
+                        <span>Learn More</span>
+                    </div>
+                </div>
             </td>
         </tr>
     </table>

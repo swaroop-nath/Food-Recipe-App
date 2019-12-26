@@ -1,1 +1,37 @@
-<p>view-recipe works!</p>
+<div class="dish-overview">
+    <div class="dish-details">
+        <div>
+            <span class="dish-name">
+                {{ dish.dishName }}
+            </span>
+            <span class="pills" (click)="showDishesInCategory()">
+                {{ dish.category.categoryName }}
+            </span>
+        </div>
+        <div class="ingredients-cloud">
+            <table class="table-responsive striped">
+                <tr *ngFor = "let arrayIngredients of ingredientsGrid">
+                    <td *ngFor = "let ingredient of arrayIngredients" class="pills">
+                        {{ ingredient.ingredientName }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dish-images">
+        <ng-image-slider id="ingredient-images" [imageSize]="{width: 400, height: 450, space: 4}" [autoSlide]="true" [infinite]="true" [images]="imageURLs" #nav></ng-image-slider>
+    </div>
+</div>
+
+<div class="dish-description">
+    <p>{{ dish.description }}</p>
+</div>
+
+<div class="cooking-steps">
+    <ul>
+        <li *ngFor = "let step of cookingSteps">
+            {{ step }}
+        </li>
+    </ul>
+</div>
+

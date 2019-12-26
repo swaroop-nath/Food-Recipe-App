@@ -1,0 +1,32 @@
+h3 {
+    margin-left: 2%;
+}
+
+div table {
+    margin-left: 5%;
+    margin-right: 3%;
+}
+
+div .card {
+    cursor: pointer;
+    width: 250px;
+}
+
+div .card .card-title {
+    color: black;
+    font-weight: 350;
+}
+
+div .card .card-image {
+    overflow: hidden;
+}
+
+div .card .card-image img {
+    transition: transform 0.5s;
+}
+
+div .card .card-image img:hover {
+    webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+    filter: blur(2px);
+    transform: scale(1.05);
+}

@@ -12,6 +12,8 @@ export class FoodRecipeService {
   private dishesMaster: Dish[];
   private categoriesMaster: Category[];
 
+  transitDish: Dish = null;
+
   private FETCH_ALL_RECIPES_URL = 'http://localhost:8180/recipe-api/fetch-all';
 
   constructor(private httpClient: HttpClient) {
@@ -42,9 +44,14 @@ export class FoodRecipeService {
   loadRandomCategories(): Category[] {
     let numOne = Math.floor(Math.random() * this.categoriesMaster.length)
     let numTwo = numOne;
+    let i = 1;
 
+    // TODO: Change the following algorithm
     while (numTwo == numOne) {
       numTwo = Math.floor(Math.random() * this.categoriesMaster.length)
+      if (i == 4)
+        break;
+      i += 1;
     }
 
     return [this.categoriesMaster[numOne], this.categoriesMaster[numTwo]]
