@@ -12,9 +12,11 @@ import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SliderModule } from 'angular-image-slider';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { AuthComponent } from './auth/auth.component';
+// import 'materialize-css';
+// import { MaterializeModule } from "angular2-materialize";
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,12 @@ import { AuthComponent } from './auth/auth.component';
     ListRecipeComponent,
     ViewRecipeComponent,
     ViewUserComponent,
-    AuthComponent
+    AuthComponent,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule
+    // MaterializeModule
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,8 @@ import { AuthComponent } from './auth/auth.component';
     HttpClientModule,
     // SliderModule,
     // BrowserAnimationsModule
-    NgImageSliderModule
+    NgImageSliderModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

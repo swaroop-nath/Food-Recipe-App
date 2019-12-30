@@ -1,1 +1,29 @@
-<p>edit-recipe works!</p>
+<div class="row upload-form">
+    <form class="col s12" (ngSubmit)="uploadDish()" #uploadDishForm="ngForm">
+        <div class="col s4">
+            <div class="col s12">
+                <span class="input-field col s8">
+                    <input [(ngModel)]="dish.dishName" type="text" name="dish_name">
+                    <label>Name of Dish</label>
+                </span>
+                <span class="input-field col s4">
+                    <input id="category-input-wrapper" [(ngModel)]="categoryInput" type="text" name="dish_category">
+                    <label>Category</label>
+                </span>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" name="dish_ingredients" [matChipInputFor]="ingredientList">
+            </div>
+        </div>
+        <div class="col s8">
+            <div class="input-field col s12">
+                <textarea [(ngModel)]="dish.description" class="materialize-textarea" name="dish_description"></textarea>
+                <label>Description of Dish</label>
+            </div>
+            <div class="input-field col s12">
+                <textarea [(ngModel)]="dish.cookingProcedure" class="materialize-textarea" name="dish_steps"></textarea>
+                <label>Steps of Cooking</label>
+            </div>
+        </div>
+    </form>
+</div>
