@@ -4,6 +4,7 @@ import { Dish } from '../model/dish.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Category } from '../model/category.model';
 import { User } from '../model/user.model';
+import { Ingredient } from '../model/ingredient.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class FoodRecipeService {
 
   private dishesMaster: Dish[];
   private categoriesMaster: Category[];
+  private ingredientMaster: Ingredient[];
 
   private jwToken: string = '';
   private loggedInUser: User = null;
@@ -27,16 +29,63 @@ export class FoodRecipeService {
 
   constructor(private httpClient: HttpClient) {
     this.dishesMaster = [];
-    this.categoriesMaster = [];
+    this.categoriesMaster = [
+      {
+        "categoryId": 1,
+        "categoryName": 'NON-VEG'
+      },
+      {
+        "categoryId": 2,
+        "categoryName": 'VEG'
+      }
+    ];
+    this.ingredientMaster = [
+      {
+        "ingredientId": 1,
+        "ingredientName": 'Salt',
+        "dishes": []
+      },
+      {
+        "ingredientId": 2,
+        "ingredientName": 'Sugar',
+        "dishes": []
+      }
+    ];
   }
   
   loadAllRecipes(): Observable<Dish[]> {
     return this.httpClient.get<Dish[]>(this.FETCH_ALL_RECIPES_URL);
   }
 
+  loadAllCategories(): Category[] {
+    return this.categoriesMaster;
+  }
+
+  loadAllIngredients(): Ingredient[] {
+    return this.ingredientMaster;
+  }
+
   setDishes(downloadedDishes: Dish[]): void {
     this.dishesMaster = downloadedDishes;
     this.extractCategories();
+    this.extractIngredients();
+  }
+
+  extractIngredients(): void {
+    let foundIngredients: Ingredient[] = [];
+
+    this.dishesMaster.forEach(dish => {
+      dish.ingredients.forEach(ingredient => {
+        foundIngredients.push(ingredient);
+        ingredient.dishes.push(dish);
+      });
+    });
+
+    this.ingredientMaster = Array.from(new Set(foundIngredients));
+
+    // this.dishesMaster.forEach(dish => {
+    //   dish.ingredients.forEach(ingredient => ingredient.dishes = Array.from(new Set(ingredient.dishes)));
+    // });
   }
 
   private extractCategories(): void {

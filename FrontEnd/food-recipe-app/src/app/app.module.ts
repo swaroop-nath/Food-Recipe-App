@@ -14,9 +14,9 @@ import { NavigatorRoutingModule } from './navigator/navigator-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { AuthComponent } from './auth/auth.component';
-// import 'materialize-css';
-// import { MaterializeModule } from "angular2-materialize";
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+// import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+// import {MatChipsModule} from '@angular/material/chips';
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
@@ -28,12 +28,7 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from 
     ListRecipeComponent,
     ViewRecipeComponent,
     ViewUserComponent,
-    AuthComponent,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatIconModule
-    // MaterializeModule
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +38,8 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from 
     // SliderModule,
     // BrowserAnimationsModule
     NgImageSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

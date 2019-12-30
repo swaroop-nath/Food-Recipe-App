@@ -7,12 +7,35 @@
                     <label>Name of Dish</label>
                 </span>
                 <span class="input-field col s4">
-                    <input id="category-input-wrapper" [(ngModel)]="categoryInput" type="text" name="dish_category">
-                    <label>Category</label>
+                    <tag-input [(ngModel)]="selectedCategory" secondaryPlaceholder="Category" maxItems="1" name="dish_category">
+                        <tag-input-dropdown
+                            [autocompleteItems]="categoryList"
+                            [showDropdownIfEmpty]="true"
+                            [dynamicUpdate]="true">
+                        </tag-input-dropdown>
+                    </tag-input>
                 </span>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="dish_ingredients" [matChipInputFor]="ingredientList">
+                <tag-input secondaryPlaceholder="Enter New Ingredient" placeholder="+Ingredient">
+                    <tag-input-dropdown
+                        [autocompleteItems]="ingredientList"
+                        [showDropdownIfEmpty]="true"
+                        [dynamicUpdate]="true">
+                    </tag-input-dropdown>
+                </tag-input>
+            </div>
+            <div class="row"></div>
+            <div class="file-field input-field col s9">
+                <div>
+                  <img id="file-upload" class="file-upload-image" src="../../assets/food_icon.jpeg" alt="Food" width="144px" height="144px">
+                  <img class="file-upload-image-plus" src="../../assets/plus-sign.svg" alt="Upload File" width="72px" height="72px">
+                  <input type="file" multiple>
+                </div>
+                <br>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
             </div>
         </div>
         <div class="col s8">
@@ -20,10 +43,29 @@
                 <textarea [(ngModel)]="dish.description" class="materialize-textarea" name="dish_description"></textarea>
                 <label>Description of Dish</label>
             </div>
+            <div class="row"></div>
+            <div class="row"></div>
             <div class="input-field col s12">
                 <textarea [(ngModel)]="dish.cookingProcedure" class="materialize-textarea" name="dish_steps"></textarea>
                 <label>Steps of Cooking</label>
             </div>
         </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!uploadDishForm.valid">Add Dish</button>
     </form>
 </div>
+<br> <br> <br> <br> <br>
+<hr>
+
+<div class="foot-note-instructions">
+    <p>
+        Instructions on adding steps: Please write steps in the following format - <br> <br>
+        1. Take 200ml of water in an utensil. <br>
+        2. Boil it in medium flame. <br>
+        3. Put in some noodles into the boiling water, with some stirring using a spoon. This breaks the noodles in smaller
+        parts, easy to consume. <br>
+        4. After about 3-4 minutes of boiling, pour the Maggi Masala into the boiling water. <br>
+        5. Stir to thoroughly mix the Masala with the noodles and cover with a lid for about 30 seconds. <br>
+        6. Switch off the supply and pour the noodles into a bowl to enjoy the hot Maggi. <br>
+    </p>
+</div>
+

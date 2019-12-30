@@ -2,6 +2,48 @@
     margin-top: 16px;
 }
 
-.input-field {
-    /* color: tomato; */
+.file-field {
+ overflow: hidden;
+ padding-top: 8px;
+}
+
+.file-upload-image {
+    position: relative;
+    left: 96px;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    transition: all 0.2s;
+}
+
+.file-upload-image-plus {
+    position: relative;
+    left: -10px;
+    top: -36px;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.deep-blur {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+}
+
+.increase-opacity {
+    opacity: 0.8;
+}
+
+.btn {
+    background-color: #03A9F4;
+    position: relative;
+    top: 300px;
+    left: 96px;
+    width: 136px;
+    height: 56px;
+    font-size: 14pt;
+    border-radius: 12px;
+}
+
+.foot-note-instructions {
+    margin-left: 16px;
+    color: #686868;
 }
