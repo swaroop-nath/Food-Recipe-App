@@ -1,4 +1,4 @@
-<div class="toolbar" role="banner">
+<div class="toolbar" role="banner" id="toolbar">
   <table class="responsive-table striped">
     <tr>
       <td>
@@ -20,11 +20,19 @@
       <td>
         <div class="useful-links">
           <button class="about-app" (click)="showAbout()">About</button>
-          <button class="sign-in" (click)="signIn()">Sign In</button>
+          <button class="sign-in" (click)="signIn()" [hidden]="isUserLoggedIn || isAdminLoggedIn">Sign In</button>
+          <button class="sign-out" (click)="signOut()" [hidden]="!isUserLoggedIn && !isAdminLoggedIn">Sign Out</button>
+          <button class="more" (click)="showMoreMenuItems()" [hidden]="!isUserLoggedIn && !isAdminLoggedIn">
+            <img src="../assets/more.png" alt="More Options" height="30%">
+          </button>
         </div>
       </td>
     </tr>
   </table>
+  <div id="menu" class="more-items">
+    <button class="view-profile" (click)="showProfile()">View Profile</button>
+    <button class="user-action" (click)="createRecipe()" [hidden]="!isUserLoggedIn">Create A Recipe</button>
+  </div>
 </div>
 
 <div>

@@ -108,4 +108,9 @@ export class FoodRecipeService {
   getSession(): User {
     return this.loggedInUser;
   }
+
+  invalidateSession(): void {
+    sessionStorage.removeItem("token");
+    this.loggedInUser = null;
+  }
 }

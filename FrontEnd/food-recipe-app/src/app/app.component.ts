@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
 import { FoodRecipeService } from './food-recipe-service/food-recipe-service.service';
+import { User } from './model/user.model';
+import { Role } from './model/role.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +13,10 @@ import { FoodRecipeService } from './food-recipe-service/food-recipe-service.ser
 export class AppComponent {
   
   isSignInVisible = false;
+  isUserLoggedIn =false;
+  isAdminLoggedIn = true;
 
-  constructor(private service: FoodRecipeService) {}
+  constructor(private service: FoodRecipeService, private router: Router) {}
 
   searchRecipe(): void {
 
@@ -26,16 +31,35 @@ export class AppComponent {
     $('div').toggleClass('blur');
   }
 
-  closeSignIn(): void {
-    this.isSignInVisible = false;
-    $('div').toggleClass('blur');
+  signOut(): void {
+    // Sign the user out - unset session storage item and unset session in service.
+    this.service.invalidateSession();
+    
+    this.isUserLoggedIn = false;
+    this.isAdminLoggedIn = false;
   }
 
-  setUpView(token, userDetails): void {
-    if (!(token === this.service.getJWToken() && userDetails != null))
-      alert("User Not Logged In. Please Login");
-    else {
-      // Show specific details
+  closeSignIn(): void {
+    this.isSignInVisible = false;
+    $('div').removeClass('blur');
+  }
+
+  setUpView(token: string, userDetails: User): void {
+    if (token === this.service.getJWToken() && userDetails != null) {
+      // Show details only visible to user.
     }
+  }
+
+  showMoreMenuItems(): void {
+    $('div#menu').toggleClass('more-visible');
+    $('div#menu > button.user-action').toggleClass('menu-items-visible'); // Doesn't work
+  }
+
+  showProfile(): void {
+    this.router.navigate(['view-user']);
+  }
+
+  createRecipe(): void {
+    this.router.navigate(['create-recipe']);
   }
 }
