@@ -2,6 +2,33 @@
     margin-top: 16px;
 }
 
+.pills {
+    display: inline;
+    border: 2px solid #03A9F4;
+    border-radius: 240px;
+    padding: 8px;
+    transition: all 0.3s;
+}
+
+.pills:hover {
+    background-color: #03A9F4;
+    color: white;
+    cursor: pointer;
+}
+
+.ingredients-cloud table {
+    margin-top: 48px;
+}
+
+.ingredients-cloud tr {
+    height: 56px;
+}
+
+.ingredients-cloud td {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .file-field {
  overflow: hidden;
  padding-top: 8px;

@@ -16,15 +16,24 @@
                     </tag-input>
                 </span>
             </div>
-            <div class="input-field col s12">
-                <tag-input secondaryPlaceholder="Enter New Ingredient" placeholder="+Ingredient">
+            <div class="ingredients-cloud">
+                <table class="table-responsive striped">
+                    <tr *ngFor = "let arrayIngredients of ingredientGrid; let row = index">
+                        <td id="pills" *ngFor = "let ingredient of arrayIngredients; let col = index" class="pills" (click)="clickOnIngredient(row, col)">
+                            {{ ingredient.ingredientName }}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- <div class="input-field col s12">
+                <tag-input [(ngModel)]="selectedIngredients" secondaryPlaceholder="Enter New Ingredient" placeholder="+Ingredient">
                     <tag-input-dropdown
                         [autocompleteItems]="ingredientList"
                         [showDropdownIfEmpty]="true"
                         [dynamicUpdate]="true">
                     </tag-input-dropdown>
                 </tag-input>
-            </div>
+            </div> -->
             <div class="row"></div>
             <div class="file-field input-field col s9">
                 <div>
